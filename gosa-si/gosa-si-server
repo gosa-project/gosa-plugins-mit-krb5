@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 #*********************************************************************
 #
-# gosa-si-client -- client for the gosa-si-server
+# gosa-si-server -- server for the Support Infrastructure
 #
 # (c) 2007-2009 by Andreas Rettenberger <rettenberger@gonicus.de>
 # (c) 2008-2010 by Cajus Pollmeier <pollmeier@gonicus.de>
@@ -13,7 +13,7 @@
 
 =head1 NAME
 
-gosa-si-server -Support infrastructure for GOsa
+gosa-si-server - Support Infrastructure for GOsa
 
 =head1 SYNOPSIS
 
@@ -389,7 +389,7 @@ sub usage
   usage: $0 [-hvf] [-c config] [-d number]
 
    -h        : this (help) message
-   -c <file> : config file (default: ${config})
+   -c <file> : config file (default: ${cfg_file})
    -x <cfg>  : dump configuration to stdout
              ( 1 = current, 2 = default )
    -f        : foreground (don't fork)
@@ -653,7 +653,7 @@ sub sig_int_handler {
 #	if (defined($ldap_handle)) {
 #		$ldap_handle->disconnect;
 #	}
-# TODO all ldap connections shoudl be closed
+# TODO all ldap connections should be closed
     
 	daemon_log("shutting down gosa-si-server", 1);
 

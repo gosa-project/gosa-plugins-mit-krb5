@@ -32,7 +32,7 @@ my (@ldap_cfg, @pam_cfg, @nss_cfg, $goto_admin, $goto_secret);
 my $mesg;
 
 my %cfg_defaults = (
-"Server" => {
+"server" => {
     "ip" => [\$server_ip, "0.0.0.0"],
     "mac-address" => [\$main::server_mac_address, "00:00:00:00:00"],
     "port" => [\$server_port, "20081"],

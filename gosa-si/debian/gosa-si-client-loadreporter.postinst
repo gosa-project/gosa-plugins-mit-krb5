@@ -12,7 +12,7 @@ case "$1" in
 esac
 
 # Restart daemon
-invoke-rc.d gosa-si restart
+invoke-rc.d gosa-si-client restart
 
 
 exit 0

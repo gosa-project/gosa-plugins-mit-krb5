@@ -115,7 +115,6 @@ my $client_status_hash = { 'developmental'=>'revision', 'stable'=>'release'};
 
 # globalise variables which are used in imported events
 our $global_kernel;
-our $cfg_file;
 our $opts_file;
 our $server_address;
 our $client_address;
@@ -129,7 +128,7 @@ our $opts_dnslookup;
 our $verbose= 0;
 
 # where is the config stored by default and his name
-our $config = '/etc/gosa-si/client.conf';
+our $cfg_file = '/etc/gosa-si/client.conf';
 
 # by default dumping of config is undefined
 our $dump_config = undef;
@@ -212,7 +211,7 @@ sub usage
   usage: $0 [-hvf] [-c config]
 
    -h        : this (help) message
-   -c <file> : config file (default: ${config})
+   -c <file> : config file (default: ${cfg_file})
    -x <cfg>  : dump configuration to stdout
              ( 1 = current, 2 = default )
    -f        : foreground (don't fork)
@@ -1225,7 +1224,7 @@ sub post_processing_and_sending
 
 sub find_servers {
     # add gosa-si-server address from config file at first position of server list
-    my $server_check_cfg = Config::IniFiles->new( -file => $config );
+    my $server_check_cfg = Config::IniFiles->new( -file => $cfg_file );
 
     # Parse servers string
     my @conf_servers = split(',', $servers_string);
@@ -1367,7 +1366,7 @@ sub create_pid {
 Getopt::Long::Configure( 'bundling' );
 GetOptions( 'v|verbose+' => \$verbose,
             'h|help' => \&usage,
-            'c|config=s' => \$config,
+            'c|config=s' => \$cfg_file,
             'x|dump-config=i' => \$dump_config,
             'f|foreground' => \$foreground)
   or usage( '', 1 );
@@ -1383,7 +1382,7 @@ if( defined $dump_config ) {
 }
 
 #  read and set config parameters
-&read_configfile($config, %cfg_defaults);
+&read_configfile($cfg_file, %cfg_defaults);
 
 # daemonize the program
 &start_daemon($foreground);
