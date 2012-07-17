@@ -877,7 +877,11 @@ class mailgroup extends plugin
 
         /* Check if this mail address is already in use */
         $ldap->cd($this->config->current['BASE']);
-        $filter = "(&(!(objectClass=gosaUserTemplate))(!(cn=".$this->cn."))".
+        $chk_attr = "cn";
+        if ($this->cn != $this->orig_cn) {
+          $chk_attr = "orig_cn";
+        }
+        $filter = "(&(!(objectClass=gosaUserTemplate))(!(cn=".$this->$chk_attr."))".
             "(objectClass=gosaMailAccount)".
             "(|(mail=".$mail.")(alias=".$mail.")(gosaMailAlternateAddress=".$mail.")))";
         $ldap->search($filter,array("cn"));
