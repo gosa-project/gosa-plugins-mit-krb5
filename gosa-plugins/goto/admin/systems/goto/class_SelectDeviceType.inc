@@ -61,8 +61,11 @@ class SelectDeviceType extends plugin
         $display= "";
 
         $map = array("gotoWorkstation" => "W","gotoTerminal" => "T","goServer" => "S", "FAKE_OC_OpsiHost" => "O");
+        $tmp2 = $tmp[$map[$this->SystemType]];
+        asort($tmp2);
+
         $smarty->assign("dns_cnt" ,        set_post(count($this->dns)));
-        $smarty->assign("ogroups",         set_post($tmp[$map[$this->SystemType]]));
+        $smarty->assign("ogroups",         set_post($tmp2));
         $smarty->assign("SystemTypes"     ,set_post($this->SystemTypes));
         $smarty->assign("SystemTypeKeys"  ,set_post(array_flip($this->SystemTypes))); 
         $smarty->assign("ObjectGroup",     set_post($this->ObjectGroup));
