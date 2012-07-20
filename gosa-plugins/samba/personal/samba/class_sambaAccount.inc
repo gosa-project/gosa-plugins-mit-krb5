@@ -275,7 +275,9 @@ class sambaAccount extends plugin
         $SkipWrite = (!isset($this->parent) || !$this->parent) && !session::is_set('edit');
 
         if(isset($_POST['select_sambaPrimaryGroupSID'])){
-            $this->dialog = new primarySIDSelect($this->config,$this->dn);
+          $di = $this->get_domain_info();
+          $sid = $di["sambaSID"][0];
+          $this->dialog = new primarySIDSelect($this->config, get_userinfo(), $sid);
         }
         if($this->dialog instanceof primarySIDSelect){
           if(isset($_POST['select_gsid_cancel'])){
@@ -580,6 +582,17 @@ class sambaAccount extends plugin
         if($ldap->count()){
           $attrs = $ldap->fetch();
           $name = $attrs['cn'][0];
+          $this->sid_cache[$sid] = $name;
+        }else{
+          if(preg_match("/-512$/", $sid)){
+            $name = _("Domain administrators");
+          }else if(preg_match("/-513$/", $sid)){
+            $name = _("Domain users");
+          }else if(preg_match("/-514$/", $sid)){
+            $name = _("Domain guests");
+          }else{
+            $name = $sid;
+          }
           $this->sid_cache[$sid] = $name;
         }
       }
@@ -956,7 +969,22 @@ class sambaAccount extends plugin
 
         /* We only care if we are on the sambaTab... */
         if (isset($_POST['sambaTab'])){
+
+            $old_d_n = $this->sambaDomainName;
+
             plugin::save_object();
+
+            if($this->sambaDomainName != $old_d_n){
+              $di = $this->get_domain_info();
+              $sid = $di["sambaSID"][0];
+
+              if(preg_match("/\-(512|513|514)$/", $this->sambaPrimaryGroupSID)){
+                $type = preg_replace("/^.*\-((512|513|514))$/", "\\1", $this->sambaPrimaryGroupSID);
+                $this->sambaPrimaryGroupSID = "{sid}-{$type}";
+              }else{
+                $this->sambaPrimaryGroupSID = "{sid}-513";
+              }
+            }
 
             // Display domain info dialog
             if(isset($_POST['display_information'])){
@@ -974,12 +1002,6 @@ class sambaAccount extends plugin
                     $this->is_modified |= ($tmp != $this->$flag);
                     $this->$flag = isset($_POST[$flag]);
                 }
-            }
-
-
-            // get sambaDomain attribute
-            if ($this->acl_is_writeable("sambaDomainName",$SkipWrite) && isset ($_POST['sambaDomainName'],$SkipWrite)){
-                $this->sambaDomainName= get_post('sambaDomainName');
             }
 
             // Save CTX values 

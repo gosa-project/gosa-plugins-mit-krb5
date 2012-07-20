@@ -16,8 +16,8 @@
     <tag>default</tag>
     <label>Default filter</label>
     <query>
-      <backend>LDAPBlacklist</backend>
-      <filter>(&amp;(objectClass=sambaGroupMapping)(sambaSID=*)(cn=$))</filter>
+      <backend>SID</backend>
+      <filter>(&amp;(objectClass=sambaGroupMapping)(sambaSID=%s*)(cn=$))</filter>
     </query>
     <autocomplete>
       <attribute>cn</attribute>

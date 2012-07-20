@@ -28,11 +28,13 @@ class primarySIDSelect extends management
 
   var $plHeadline = "Primary group selection";
 
-  function __construct($config,$ui)
+  function __construct($config,$ui, $sid)
   {
     $this->config = $config;
     $this->ui = $ui;
 
+    # Store the domain-sid in the session, to be able to use it in the filter.
+    session::set("primarySIDSelect::sid", $sid);
     $this->storagePoints = array(get_ou("core", "groupRDN"));
 
     // Build filter
