@@ -149,6 +149,16 @@ class sambaAccount extends plugin
             $this->sambaKickoffTime = date("d.m.Y", $this->sambaKickoffTime);
             $this->flag_sambaKickoffTime = TRUE;
         }
+
+        // Use first domain-name if there was none selected before.
+        // And set the primary group sid to "Domain Users".
+        if(!$this->sambaDomainName){
+          $domains= array_keys($this->config->data['SERVERS']['SAMBA']);
+          $this->sambaDomainName = $domains[0];
+          $di = $this->get_domain_info();
+          $sid = $di["sambaSID"][0];
+          $this->sambaPrimaryGroupSID = "{$sid}-513";
+        }
     }
 
 
