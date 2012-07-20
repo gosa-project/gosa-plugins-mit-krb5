@@ -26,6 +26,7 @@ class sambaAccount extends plugin
     var $view_logged = FALSE;
 
     // Domaind information, gid, sid, rid
+    var $sid_cache = array();
     var $uid= "";
     var $uidNumber= 65535;
     var $gidNumber= 65535;
@@ -273,24 +274,49 @@ class sambaAccount extends plugin
         // Editing from the MyAccount/Personal section may be disabled until we've pressed the 'edit' button.
         $SkipWrite = (!isset($this->parent) || !$this->parent) && !session::is_set('edit');
 
+        if(isset($_POST['select_sambaPrimaryGroupSID'])){
+            $this->dialog = new primarySIDSelect($this->config,$this->dn);
+        }
+        if($this->dialog instanceof primarySIDSelect){
+          if(isset($_POST['select_gsid_cancel'])){
+            $this->dialog = NULL;
+          }
+          if(isset($_POST['select_gsid_finish'])){
+            $sid = $this->dialog->detectPostActions();
+            if(isset($sid['targets'])){
+                $headpage = $this->dialog->getHeadpage();
+                foreach($sid['targets'] as $dn){
+                  $attrs = $headpage->getEntry($dn);
+                  $this->sambaPrimaryGroupSID = $attrs['sambaSID'][0];
+                }
+            }
+
+            $this->dialog = NULL;
+          }
+          if((isset($this->dialog)) && (is_object($this->dialog))){
+            return($this->dialog->execute());
+          }
+        }
 
         // Handle the samba logon hours dialog here, instantiate it on request.
         if(isset($_POST['SetSambaLogonHours']) && $this->acl_is_readable("sambaLogonHours")){
             $this->dialog = new sambaLogonHours($this->config,$this->dn,$this->sambaLogonHours, $this->getacl('sambaLogonHours'));
         }
-        if(isset($_POST['cancel_logonHours'])){
+        if($this->dialog instanceof sambaLogonHours){
+          if(isset($_POST['cancel_logonHours'])){
             $this->dialog = FALSE;
-        }
-        if(isset($_POST['save_logonHours'])){
+          }
+          if(isset($_POST['save_logonHours'])){
             $this->dialog->save_object();
             if($this->acl_is_writeable("sambaLogonHours")){
-                $this->sambaLogonHours = $this->dialog->save();
+              $this->sambaLogonHours = $this->dialog->save();
             }
             $this->dialog = FALSE;
-        }
-        if((isset($this->dialog)) && (is_object($this->dialog))){
+          }
+          if((isset($this->dialog)) && (is_object($this->dialog))){
             $this->dialog->save_object();
             return($this->dialog->execute());
+          }
         }
 
 
@@ -536,8 +562,28 @@ class sambaAccount extends plugin
 
         $smarty->assign("additional_info_PwdMustChange",set_post($additional_info_PwdMustChange));
         $smarty->assign("multiple_support",$this->multiple_support_active);
+
+
+
+        $smarty->assign("sambaPrimaryGroupSID", $this->getSIDName($this->sambaPrimaryGroupSID));
+
         $display.= $smarty->fetch (get_template_path('samba3.tpl', TRUE, dirname(__FILE__)));
         return ($display);
+    }
+
+
+    function getSIDName($sid){
+      if(!isset($this->sid_cache[$sid])){
+        $ldap = $this->config->get_ldap_link();
+        $ldap->cd($this->config->current['BASE']);
+        $ldap->search("(&(objectClass=sambaGroupMapping)(sambaSID={$sid}))", array("cn"));
+        if($ldap->count()){
+          $attrs = $ldap->fetch();
+          $name = $attrs['cn'][0];
+          $this->sid_cache[$sid] = $name;
+        }
+      }
+      return($this->sid_cache[$sid]);
     }
 
 

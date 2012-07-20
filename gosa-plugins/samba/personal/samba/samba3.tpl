@@ -40,6 +40,16 @@
 {/render}
      </td>
     </tr>
+    <tr>
+     <td><label for="sambaPrimaryGroupSID">{t}Primary group{/t}</label></td>
+     <td>
+{render acl=$sambaDomainNameACL}
+      <input type="text" name="dummy_1232" value="{$sambaPrimaryGroupSID}" disabled>
+{/render}
+{render acl=$sambaDomainNameACL  checkbox=$multiple_support checked=$use_sambaDomainName}
+      <button type='submit' name='select_sambaPrimaryGroupSID'>{t}Select{/t}</button>
+{/render}
+     </td>
    </table>
   </td>
   <td class='left-border'>
