@@ -528,7 +528,7 @@ class sambaAccount extends plugin
                     "CtxMaxDisconnectionTime","CtxMaxIdleTimeF","CtxMaxIdleTime","connectclientdrives",
                     "onnectclientprinters","defaultprinter","shadow","brokenconn",
                     "reconn","connectclientprinters","SetSambaLogonHours",
-                    "workstation_list","sambaKickoffTime",
+                    "workstation_list","sambaKickoffTime", "select_sambaPrimaryGroupSID",
                     "enforcePasswordChange", "passwordNeverExpires", "noPasswordRequired",
                     "temporaryDisabled","cannotChangePassword") as $attr){
 
@@ -1242,6 +1242,7 @@ class sambaAccount extends plugin
                         "sambaHomePath"               => _("Generic home directory") ,
                         "sambaHomeDrive"              => _("Generic samba home drive") ,
                         "sambaDomainName"             => _("Domain") ,
+                        "sambaPrimaryGroupSID"        => _("Primary group"),
                         "sambaLogonScript"            => _("Generic script path") ,
                         "sambaProfilePath"            => _("Generic profile path") ,
                         "AllowLoginOnTerminalServer"  => _("Allow login on terminal server"),
@@ -1266,12 +1267,12 @@ class sambaAccount extends plugin
 
     function multiple_save_object()
     {
-        if (isset($_POST['sambaTab'])){
+      if (isset($_POST['sambaTab'])){
             $this->save_object();
             plugin::multiple_save_object();
             foreach(array("allow_pwchange","tslogin","CtxWFHomeDir","CtxWFHomeDirDrive","CtxWFProfilePath",
                         "inherit","CtxWorkDirectory","CtxInitialProgram","CtxMaxConnectionTimeF",
-                        "CtxMaxConnectionTime","CtxMaxDisconnectionTimeF",
+                        "CtxMaxConnectionTime","CtxMaxDisconnectionTimeF", "select_sambaPrimaryGroupSID",
                         "CtxMaxDisconnectionTime","CtxMaxIdleTimeF","CtxMaxIdleTime","connectclientdrives",
                         "onnectclientprinters","defaultprinter","shadow","brokenconn",
                         "reconn","connectclientprinters","SetSambaLogonHours","workstation_list",
@@ -1447,6 +1448,9 @@ class sambaAccount extends plugin
         }
         if(in_array_strict("reconn",$this->multi_boxes)){
             $ret["reconn"]    =$this->mungedObject->getReConn();
+        }
+        if(in_array_strict("select_sambaPrimaryGroupSID",$this->multi_boxes)){
+            $ret["sambaPrimaryGroupSID"]    =$this->sambaPrimaryGroupSID;
         }
 
         // Handle Flags.

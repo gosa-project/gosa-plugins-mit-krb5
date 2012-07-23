@@ -46,7 +46,7 @@
 {render acl=$sambaDomainNameACL}
       <input type="text" name="dummy_1232" value="{$sambaPrimaryGroupSID}" disabled>
 {/render}
-{render acl=$sambaDomainNameACL  checkbox=$multiple_support checked=$use_sambaDomainName}
+{render acl=$sambaPrimaryGroupSIDACL  checkbox=$multiple_support checked=$use_select_sambaPrimaryGroupSID}
       <button type='submit' name='select_sambaPrimaryGroupSID'>{t}Select{/t}</button>
 {/render}
      </td>
