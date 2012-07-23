@@ -48,8 +48,18 @@ class primarySIDSelect extends management
 
     // Build headpage
     $headpage = new listing(get_template_path("sid-list.xml", true, dirname(__FILE__)));
+    $headpage->registerElementFilter("filterSID", "primarySIDSelect::filterSID");
     $headpage->setFilter($filter);
     parent::__construct($config, $ui, "groups", $headpage);
+  }
+
+  static function filterSID($row, $cn, $sid)
+  {
+    $cn= $cn[0];
+    if(preg_match("/(512|513|514)$/", $sid[0])){
+      return ("<b>{$cn}</b>"); 
+    }
+    return ("{$cn}"); 
   }
 } 
 // vim:tabstop=2:expandtab:shiftwidth=2:filetype=php:syntax:ruler:

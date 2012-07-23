@@ -574,11 +574,7 @@ class sambaAccount extends plugin
 
         $smarty->assign("additional_info_PwdMustChange",set_post($additional_info_PwdMustChange));
         $smarty->assign("multiple_support",$this->multiple_support_active);
-
-
-
         $smarty->assign("sambaPrimaryGroupSID", $this->getSIDName($this->sambaPrimaryGroupSID));
-
         $display.= $smarty->fetch (get_template_path('samba3.tpl', TRUE, dirname(__FILE__)));
         return ($display);
     }
@@ -1145,24 +1141,6 @@ class sambaAccount extends plugin
                 $uidNumber++;
             }
             $this->attrs['sambaSID']= $sid;
-
-            // Check for users primary group 
-            $ldap->cd($this->config->current['BASE']);
-            $ldap->search("(&(objectClass=posixGroup)(gidNumber=".$this->gidNumber."))", array("cn"));
-            if ($ldap->count() != 1){
-                msg_dialog::display(_("Warning"), 
-                        _("Cannot convert primary group to samba group: group cannot be identified!"), 
-                        WARNING_DIALOG);
-            } else {
-                $attrs= $ldap->fetch();
-                $g= new group($this->config, $ldap->getDN());
-                if ($g->sambaSID == ""){
-                    $g->sambaDomainName= $this->sambaDomainName;
-                    $g->smbgroup= TRUE;
-                    $g->save ();
-                }
-                $this->attrs['sambaPrimaryGroupSID']= $g->sambaSID;
-            }
         }
 
         // Set or reset homeDrive - Why is this done seperataly?

@@ -32,18 +32,20 @@
 		<column>
 			<value>%{filter:objectType(dn,objectClass)}</value>
 		</column>
+
 		<column>
 			<label>Name</label>
 			<sortattribute>cn</sortattribute>
 			<sorttype>string</sorttype>
-			<value>%{cn}</value>
+			<value>%{filter:filterSID(dn,cn,sambaSID)}</value>
 			<export>true</export>
 		</column>
+
 		<column>
 			<label>Description</label>
 			<sortattribute>description</sortattribute>
 			<sorttype>string</sorttype>
-			<value>%{description}</value>
+			<value>%{filter:filterSID(dn,description,sambaSID)}</value>
 			<export>true</export>
 		</column>
 	</table>
