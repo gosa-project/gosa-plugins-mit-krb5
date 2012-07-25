@@ -21,7 +21,7 @@
 </div>
 
 <div class="plugin-actions">
-  <button type='submit' name='select_gsid_finish'>{msgPool type=addButton}</button>
+  <button type='submit' name='select_gsid_finish'>{msgPool type=okButton}</button>
   <button type='submit' name='select_gsid_cancel'>{msgPool type=cancelButton}</button>
 </div>
 

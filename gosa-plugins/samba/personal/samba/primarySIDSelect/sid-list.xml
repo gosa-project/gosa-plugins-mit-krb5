@@ -7,7 +7,7 @@
 		<template>../plugins/personal/samba/primarySIDSelect/sid-list.tpl</template>
 		<module>groups</module>
 		<singleSelect>true</singleSelect>
-		<label>Please select the desired primary group</label>
+		<label>Please select the desired primary samba group</label>
 		<defaultSortColumn>1</defaultSortColumn>
 		<objectType>
 			<label>Group</label>
