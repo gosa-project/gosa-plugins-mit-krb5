@@ -562,9 +562,6 @@ class servDNSeditZoneEntries extends plugin
                 }
                 break;
             case 'sRVRecord': // RFC 2782
-                if(!tests::is_dns_name($name)) {
-                    $message[] = sprintf($template, $name, $type, $value, _("Entry should be a DNS name."), "example");
-                }
                 //value: priority weight port target
                 if(preg_match('/^([0-9]+)\s+([0-9]+)\s+([0-9]+)\s+(\S+)$/', $value, $matches)) {
                     if(!tests::is_id($matches[1])) {
