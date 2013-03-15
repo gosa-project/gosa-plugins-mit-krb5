@@ -10,7 +10,30 @@ class mailMethodKolabNoImap extends mailMethodKolab
     public function accountRemoveable(&$reason = ""){
       return(TRUE);
     }
-  
+ 
+    public function fixAttributesOnRemove()
+    {
+      mailMethod::fixAttributesOnRemove();
+      foreach($this->attributes as $source => $dest){
+        $this->attrs[$dest]   = array();
+        $this->attrs[$source] = array();
+        $this->parent->attrs[$dest]   = array();
+        $this->parent->attrs[$source] = array();
+      }
+      if($this->type == "user"){
+        $ocs = $this->userObjectClasses;
+      }else{
+        $ocs = $this->shareObjectClasses;
+      }
+
+      if($this->type == "group"){ 
+        $this->parent->attrs['gosaSharedFolderTarget'] =array();
+      }
+
+      $this->parent->attrs['kolabDeleteflag'] = array();
+      $this->parent->attrs['kolabFolderType'] = array();
+    } 
+
     public function allow_remove(&$reason)
     {
       return(TRUE);
