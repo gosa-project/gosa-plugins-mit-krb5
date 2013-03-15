@@ -4,6 +4,18 @@ class mailMethodKolabNoImap extends mailMethodKolab
 {
     protected $enableSieveManager   = FALSE;
 
+    /*! \brief  Checks whether this account is removeable or not.
+      There may be some dependencies left, eg. kolab.
+     */
+    public function accountRemoveable(&$reason = ""){
+      return(TRUE);
+    }
+  
+    public function allow_remove(&$reason)
+    {
+      return(TRUE);
+    }
+
     public function connect()
     {
         return(mailMethod::connect());
