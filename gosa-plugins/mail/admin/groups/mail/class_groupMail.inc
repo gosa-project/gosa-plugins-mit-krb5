@@ -394,8 +394,8 @@ class mailgroup extends plugin
             }
         }
         if (isset($_POST['delete_forwarder'])){
-            $this->delForwarder (get_post('forwarder_list'));
-        }
+            $this->delForwarder($_POST['forwarder_list']);
+	}
 
 
         /****************
