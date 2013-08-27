@@ -244,7 +244,11 @@ class goMailServer extends goService{
                     isset($_POST['Select_postfixMyNetworks']) && 
                     (count($_POST['Select_postfixMyNetworks']))){
                 foreach(get_post('Select_postfixMyNetworks') as $str ){
-                    unset($this->postfixMyNetworks[$str]);
+                    if(is_array($str)) {
+                      unset($this->postfixMyNetworks[$str[0]]);
+                    } else {
+                      unset($this->postfixMyNetworks[$str]);
+                    }
                 }
             }
         }
@@ -258,8 +262,12 @@ class goMailServer extends goService{
             }
 
             if((isset($_POST['DelpostfixMyDestinations'])) && isset($_POST['Select_postfixMyDestinations']) &&(count($_POST['Select_postfixMyDestinations']))){
-                foreach(get_post('Select_postfixMyDestinations') as $str ){
-                    unset($this->postfixMyDestinations[$str]);
+                foreach(get_post('Select_postfixMyDestinations') as $str ) {
+                    if(is_array($str)) {
+                        unset($this->postfixMyDestinations[$str[0]]);
+                    } else {
+                        unset($this->postfixMyDestinations[$str]);
+                    }
                 }
             }
         }
