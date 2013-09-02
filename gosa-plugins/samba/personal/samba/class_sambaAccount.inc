@@ -48,7 +48,6 @@ class sambaAccount extends plugin
     var $sambaLogoffTime= "2147483647";
     var $sambaKickoffTime= "";
     var $sambaPwdCanChange= "0";
-    var $sambaPwdMustChange= "0";
 
     // Flags (checkboxes) to restrict account settings.
     var $sambaAcctFlags= "[UX        ]";
@@ -79,7 +78,7 @@ class sambaAccount extends plugin
     var $ctxattributes= array();
     var $attributes= array("sambaSID", "sambaPwdLastSet", "sambaLogonTime",
             "sambaLogoffTime", "sambaKickoffTime", "sambaPwdCanChange",
-            "sambaPwdMustChange", "sambaAcctFlags", "uid", "sambaMungedDial",
+            "sambaAcctFlags", "uid", "sambaMungedDial",
             "sambaHomePath", "sambaHomeDrive", "sambaLogonScript",
             "sambaProfilePath", "sambaPrimaryGroupSID", "sambaDomainName",
             "sambaUserWorkstations", "sambaPasswordHistory",
@@ -188,22 +187,11 @@ class sambaAccount extends plugin
         // Specifies the time (UNIX time format) after which the user is allowed to change his password.
         // If this attribute is not set, the user will be free to change his password whenever he wants.
 
-        // sambaPwdLastSet
-        // _______________
-        // The integer time in seconds since 1970 when the sambaLMPassword and sambaNTPassword attributes were last set.
-
-        // sambaPwdMustChange
-        // _______________
-        // Specifies the time (UNIX time format) when the user is forced to change his password. If this
-        // value is set to 0, the user will have to change his password at first login. If this attribute is not
-        // set, then the password will never expire.
-
-
-        // A password change is enforced by using a timestamp in sambaPwdMustChange.
+        // A password change is enforced by using 0 as a timestamp in sambaPwdLastSet.
         //  We simple set it to '0' to enforce a change.
         // --------------------------------
         // Normally it contains a timestamp, which specifies and expiration date. 
-        $this->flag_enforcePasswordChange =  (isset($attrs['sambaPwdMustChange']) && $attrs['sambaPwdMustChange'][0] == '0');
+        $this->flag_enforcePasswordChange =  (isset($attrs['sambaPwdLastSet']) && $attrs['sambaPwdLastSet'][0] == '0');
 
         // A user cannot change his password until the given timestamp has reached.
         //  We simply set it to max int to disallow a password change till the timestamp reaches 4294967295, 
@@ -543,7 +531,7 @@ class sambaAccount extends plugin
             $smarty->assign("tsloginstate","");
         }
 
-        // Create additional info for sambaKickOffTime and sambaPwdMustChange. 
+        // Create additional info for sambaKickOffTime and sambaPwdLastSet. 
         //  e.g. Display effective kickoff time. Domain policy + user settings. 
         $additional_info_PwdMustChange = "";
 
@@ -650,7 +638,6 @@ class sambaAccount extends plugin
 
         $sambaKickoffTime = "unset"; 
         $sambaPwdCanChange = "unset";
-        $sambaPwdMustChange = "unset";
         $sambaBadPasswordCount = "unset";
         $sambaBadPasswordTime = "unset";
 
@@ -663,7 +650,7 @@ class sambaAccount extends plugin
         /* User attributes 
          */
         $user_attributes = array("sambaBadPasswordTime","sambaPwdLastSet","sambaLogonTime","sambaLogoffTime",
-                "sambaKickoffTime","sambaPwdCanChange","sambaPwdMustChange","sambaBadPasswordCount", "sambaSID");
+                "sambaKickoffTime","sambaPwdCanChange","sambaBadPasswordCount", "sambaSID");
 
         /* Get samba SID object and parse settings.
          */  
@@ -685,8 +672,9 @@ class sambaAccount extends plugin
                 $$attr = $this->attrs[$attr][0];
             }
         }
-        if (is_numeric($sambaPwdMustChange)) {
-            $sambaPwdMustChange= date('d.m.Y', $sambaPwdMustChange);
+        if (is_numeric($attr['sambaPwdMaxAge']) && is_numeric($sambaPwdMustChange)) {
+            $tmpTimestamp = $sambaPwdLastSet + $attr['sambaPwdMaxAge'];
+            $sambaPwdMustChange = date('d.m.Y', $tmpTimestamp);
         }
         if (is_numeric($sambaKickoffTime)) {
             $sambaKickoffTime= date('d.m.Y', $sambaKickoffTime);
@@ -1076,14 +1064,14 @@ class sambaAccount extends plugin
 
         // Handle "enforce password change" flag.
         if($this->flag_enforcePasswordChange){
-            $this->attrs['sambaPwdMustChange'] = 0;
+            $this->attrs['sambaPwdLastSet'] = 0;
         }else{
 
             // Keep old values if given.
-            if ($this->sambaPwdMustChange != "0"){
-                $this->attrs['sambaPwdMustChange']= $this->sambaPwdMustChange;
+            if ($this->sambaPwdMustChange != 0){
+                $this->attrs['sambaPwdLastSet'] = $this->sambaPwdMustChange;
             } else {
-                $this->attrs['sambaPwdMustChange']= array();
+                $this->attrs['sambaPwdLastSet'] = time();
             }
         }
 
