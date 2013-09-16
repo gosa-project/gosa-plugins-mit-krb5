@@ -335,11 +335,11 @@ class servdhcp extends goService
             return($this->dialog->execute());
         }
 
-        $editImgIns = image('images/lists/element.png', 'insertDhcp_%s', _("Insert new DHCP section"));
+        $editImgIns = image('images/lists/element.png[new]', 'insertDhcp_%s', _("Insert new DHCP section"));
         $editImgIns.= image('images/lists/edit.png', 'editDhcp_%s', _("Edit DHCP section"));
         $editImgIns.= image('images/lists/trash.png', 'delDhcp_%s', _("Remove DHCP section"));
 
-        $editImgInsNoDel = image('images/lists/element.png', 'insertDhcp_%s', _("Insert new DHCP section"));
+        $editImgInsNoDel = image('images/lists/element.png[new]', 'insertDhcp_%s', _("Insert new DHCP section"));
         $editImgInsNoDel.= image('images/lists/edit.png', 'editDhcp_%s', _("Edit DHCP section"));
 
         $editImg = image('images/lists/edit.png', 'editDhcp_%s', _("Edit DHCP section"));
