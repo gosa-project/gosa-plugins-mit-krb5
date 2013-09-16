@@ -299,7 +299,7 @@ class sudo extends plugin
                     isset($_POST['new_'.$attr]) && 
                     !empty($_POST['new_'.$attr])){
 
-                $c = preg_quote(' *+-?_|!\'"()','/');
+                $c = preg_quote(' *+-?_|!\'"()\.','/');
                 if(preg_match("/^[a-z0-9{$c}]*$/i",get_post('new_'.$attr))){
                     $attrs = $this->$attr;
                     $attrs[] =  trim(get_post('new_'.$attr)); 
