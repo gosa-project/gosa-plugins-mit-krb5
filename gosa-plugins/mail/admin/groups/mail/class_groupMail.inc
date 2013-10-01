@@ -1151,7 +1151,7 @@ class mailgroup extends plugin
     function delForwarder($addresses)
     {
         if(empty($addresses)) return;
-        $this->gosaMailForwardingAddress= array_remove_entries ($addresses[0],
+        $this->gosaMailForwardingAddress= array_remove_entries ($addresses,
                 $this->gosaMailForwardingAddress);
 
         /* Update multiple edit values too */
@@ -1204,8 +1204,10 @@ class mailgroup extends plugin
     function delAlternate($addresses)
     {
         if(!count($addresses)) return;
-        $this->gosaMailAlternateAddress= array_remove_entries ($addresses,
-                $this->gosaMailAlternateAddress);
+        foreach($this->gosaMailAlternateAddress as $id => $address) {
+                if($addresses['alternates_list'][0] == $address) unset($this->gosaMailAlternateAddress[$id]);
+        }
+        $this->gosaMailAlternateAddress = array_values($this->gosaMailAlternateAddress);
         $this->is_modified= TRUE;
     }
 
