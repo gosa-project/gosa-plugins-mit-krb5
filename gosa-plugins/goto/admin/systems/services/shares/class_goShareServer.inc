@@ -66,7 +66,11 @@ class goShareServer extends goService{
                 }
             }
             foreach(get_post('goExportEntryList') as $entry){
-                $this->deleteFromList($entry);
+                if(is_array($entry)) {
+		    $this->deleteFromList($entry[0]);
+		} else {
+		    $this->deleteFromList($entry);
+		}
             }
         }
 
