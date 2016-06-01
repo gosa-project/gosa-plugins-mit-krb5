@@ -16,7 +16,7 @@ class faiPartitionTableEntry extends plugin
   var $old_cn               = "";
   var $parent               = null;
 
-  function faiPartitionTableEntry (&$config, $dn= NULL,&$parent,$disk=false)
+  function __construct(&$config, $dn= NULL,&$parent,$disk=false)
   {
     plugin::plugin ($config, $dn);
     $this->UsedAttrs  = array("cn","description","FAIpartitionType","FAIpartitionNr","FAIfsType","FAImountPoint","FAIpartitionSize",

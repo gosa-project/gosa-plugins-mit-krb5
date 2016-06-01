@@ -34,7 +34,7 @@ class dhcpPlugin extends plugin
     var $attributes= array();
     var $objectclasses= array();
 
-    function dhcpPlugin(&$parent,$attrs)
+    function __construct(&$parent,$attrs)
     {
         $this->initTime = microtime(TRUE);
         $this->parent = $parent;

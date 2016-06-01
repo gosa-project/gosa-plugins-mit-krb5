@@ -61,7 +61,7 @@ class sudo extends plugin
       @param  String $db      "new" or the sudo role dn.
       @return .
      */
-    function sudo(&$config, $dn= NULL)
+    function __construct(&$config, $dn= NULL)
     {
         plugin::plugin ($config, $dn);
 

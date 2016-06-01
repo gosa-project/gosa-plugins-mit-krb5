@@ -24,7 +24,7 @@ class goFaxServer extends goService {
     var $cn                 = "";
     var $view_logged  =FALSE;
 
-    function goFaxServer(&$config,$dn)
+    function __construct(&$config,$dn)
     {
         goService::goService($config,$dn);
         $this->DisplayName = _("FAX database");

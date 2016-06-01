@@ -60,7 +60,7 @@ class sieveManagement extends plugin
   /* Initialize the class and load all sieve scripts 
    *  try to parse them and display errors 
    */ 
-  function sieveManagement(&$config,$dn,&$parent,$uattrib)
+  function __construct(&$config,$dn,&$parent,$uattrib)
   {
     /* Check given parameter */
     if(!isset($parent->$uattrib)){

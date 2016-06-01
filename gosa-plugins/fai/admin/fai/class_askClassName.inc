@@ -13,7 +13,7 @@ class askClassName extends plugin
   var $ClassAlreadyExists = false;
   var $parent;
 
-  function askClassName (&$config,$dn,$ui,$objectClass)
+  function __construct(&$config,$dn,$ui,$objectClass)
   {
     $this->ui = $ui;
     $this->objectClass = $objectClass;

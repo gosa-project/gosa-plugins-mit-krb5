@@ -20,7 +20,7 @@ class phpgwAccount extends plugin
   
   var $multiple_support = TRUE;
 
-  function phpgwAccount (&$config, $dn= NULL)
+  function __construct(&$config, $dn= NULL)
   {
     plugin::plugin ($config, $dn);
 

@@ -28,7 +28,7 @@ class pureftpdAccount extends plugin
 
   var $multiple_support=TRUE;
 
-  function pureftpdAccount (&$config, $dn= NULL, $parent= NULL)
+  function __construct(&$config, $dn= NULL, $parent= NULL)
   {
     plugin::plugin ($config, $dn, $parent);
     

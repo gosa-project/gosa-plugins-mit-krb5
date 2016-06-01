@@ -33,7 +33,7 @@ class faiSummaryTab extends plugin{
   var $parent         = NULL; 
   var $ui             = NULL;
 
-  function faiSummaryTab(&$config,$dn)//,$parent)
+  function __construct(&$config,$dn)//,$parent)
   {
     plugin::plugin($config,$dn);//,$parent);
 

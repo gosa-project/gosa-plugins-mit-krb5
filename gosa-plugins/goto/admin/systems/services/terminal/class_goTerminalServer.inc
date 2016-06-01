@@ -20,7 +20,7 @@ class goTerminalServer extends goService{
 
     var $gotoSessionType         = array();
 
-    function goTerminalServer(&$config,$dn)
+    function __construct(&$config,$dn)
     {
         goService::goService($config,$dn);
         $this->DisplayName = _("Terminal service");

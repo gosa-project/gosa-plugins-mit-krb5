@@ -15,7 +15,7 @@ class SelectDeviceType extends plugin
 
     var $dn;
 
-    function SelectDeviceType  (&$config, $dn= NULL)
+    function __construct(&$config, $dn= NULL)
     {
         if(!is_array($dn)){
             $this->dns = array($dn);

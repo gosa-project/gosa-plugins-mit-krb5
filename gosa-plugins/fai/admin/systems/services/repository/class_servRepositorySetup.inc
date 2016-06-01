@@ -17,7 +17,7 @@ class servRepositorySetup  extends plugin
     var $cn               = "";
     var $parent           = "";
 
-    function servRepositorySetup (&$config, $dn= NULL,$data = false)
+    function __construct(&$config, $dn= NULL,$data = false)
     {
         plugin::plugin ($config, $dn);
 

@@ -16,7 +16,7 @@ class Semantics
 	var $testCommands_ = '(address|envelope|header|size|allof|anyof|exists|not|true|false)';
 	var $requireStrings_ = '(envelope|fileinto|reject|vacation|relational|subaddress|regex|imapflags|copy)';
 
-	function Semantics($command)
+	function __construct($command)
 	{
 		$this->command_ = $command;
 		$this->unknown = false;

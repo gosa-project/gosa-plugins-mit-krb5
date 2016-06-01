@@ -41,7 +41,7 @@ class servdnseditZone extends plugin
     var $ZoneObject               = array();
     var $Zone_is_used             = FALSE;
 
-    function servdnseditZone (&$config, $dn= NULL,$attrs = array())
+    function __construct(&$config, $dn= NULL,$attrs = array())
     {
         plugin::plugin ($config, $dn);
 

@@ -3,7 +3,7 @@
 class printtabs extends tabs
 {
 
-  function printtabs($config, $data, $dn,$category,$hide_refs = FALSE, $hide_acls = FALSE)
+  function __construct($config, $data, $dn,$category,$hide_refs = FALSE, $hide_acls = FALSE)
   {
 
     /* Save dn */

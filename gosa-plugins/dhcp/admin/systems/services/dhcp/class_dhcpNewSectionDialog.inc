@@ -23,7 +23,7 @@ class dhcpNewSectionDialog extends plugin
 
 
 
-    function dhcpNewSectionDialog($type)
+    function __construct($type)
     {
         $this->initTime = microtime(TRUE);
         stats::log('plugin', $class = get_class($this), $category = array($this->acl_category),  $action = 'open',

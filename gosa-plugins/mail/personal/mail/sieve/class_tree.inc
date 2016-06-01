@@ -9,7 +9,7 @@ class Tree
 	var $dumpFn_;
 	var $dump_;
 
-	function Tree(&$root)
+	function __construct(&$root)
 	{
 		$this->_construct($root);
 	}

@@ -37,7 +37,7 @@ class servkolab extends goService
     var $DisplayName  = "Kolab mail service";
     var $StatusFlag   = "";
 
-    function servkolab(&$config, $dn = NULL, $parent= NULL) 
+    function __construct(&$config, $dn = NULL, $parent= NULL) 
     {
         /* Setting the hostname and tell this Plugin that we are the kolab extension*/
         $this->hostname = preg_replace('/^cn=([^,]+),.*$/', '\1', $dn);

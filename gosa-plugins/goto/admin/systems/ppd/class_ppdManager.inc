@@ -8,7 +8,7 @@ class ppdManager
 
     var $useGzip  = true;
 
-    function ppdManager($path)
+    function __construct($path)
     {
         global $config;
         if($config->boolValueIsTrue("core","ppdGzip")){

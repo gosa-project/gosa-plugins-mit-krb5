@@ -33,7 +33,7 @@ class sieve_fileinto
     }
   }
 
-  function sieve_fileinto($data,$object_id,$parent)
+  function __construct($data,$object_id,$parent)
   {
     $this->object_id = $object_id;
     $this->parent = $parent;

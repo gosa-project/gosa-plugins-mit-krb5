@@ -5,7 +5,7 @@ class tabsPackage extends tabs
   var $base= "";
   var $parent ="";
 
-  function tabsPackage($config, $data, $dn,$category)
+  function __construct($config, $data, $dn,$category)
   {
 	tabs::tabs($config, $data, $dn,$category);
 

@@ -55,7 +55,7 @@ class printgeneric extends plugin
     var $userSelect;
     var $adminUserSelect;
 
-    function printgeneric (&$config, $dn,$parent_init,$parent)
+    function __construct(&$config, $dn,$parent_init,$parent)
     {
         $this->config = &$config;
         $this->dn = $dn; 

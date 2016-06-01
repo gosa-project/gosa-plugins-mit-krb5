@@ -15,7 +15,7 @@ class sieve_else
     return(array());
   }
 
-  function sieve_else($data,$object_id)
+  function __construct($data,$object_id)
   {
     $this->object_id = $object_id;
   }

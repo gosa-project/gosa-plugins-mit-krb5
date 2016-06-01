@@ -2,7 +2,7 @@
 
 class faxblocktabs extends tabs
 {
-  function faxblocktabs($config, $data, $dn)
+  function __construct($config, $data, $dn)
   {
     tabs::tabs($config, $data, $dn, 'gofaxlist');
 

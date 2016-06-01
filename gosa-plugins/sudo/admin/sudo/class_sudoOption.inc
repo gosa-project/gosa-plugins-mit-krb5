@@ -36,7 +36,7 @@ class sudoOption extends plugin
       @param  Object $config  The GOsa configuration object.
       @param  String $dn      The object dn.
      */
-    function sudoOption(&$config, $dn= NULL)
+    function __construct(&$config, $dn= NULL)
     {
         plugin::plugin ($config, $dn);
 

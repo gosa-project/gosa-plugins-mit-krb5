@@ -47,7 +47,7 @@ class gofaxAccount extends plugin
   /* Enable multiple edit support */
   var $multiple_support = TRUE;
 
-  function gofaxAccount (&$config, $dn= NULL)
+  function __construct(&$config, $dn= NULL)
   {
     /* General initialization */
     plugin::plugin ($config, $dn);

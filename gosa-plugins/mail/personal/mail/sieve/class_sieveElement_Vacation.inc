@@ -13,7 +13,7 @@ class sieve_vacation
   var $Expert   = FALSE;
   var $parent   = NULL;
 
-  function sieve_vacation($data,$object_id,$parent)
+  function __construct($data,$object_id,$parent)
   {
     $this->parent = $parent;
     $this->object_id = $object_id;

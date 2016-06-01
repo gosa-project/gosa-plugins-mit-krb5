@@ -13,7 +13,7 @@ class faiTemplateEdit extends plugin
   var $write_protect = FALSE;
   var $mb_extension = TRUE;
 
-  function faiTemplateEdit (&$config, $dn, $value)
+  function __construct(&$config, $dn, $value)
   {
     plugin::plugin ($config, $dn);
     if(!function_exists("mb_detect_encoding")){

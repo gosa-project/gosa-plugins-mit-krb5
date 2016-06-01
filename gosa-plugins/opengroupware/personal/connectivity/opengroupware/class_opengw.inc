@@ -24,7 +24,7 @@ class ogw{
   var $option     = "";
   var $connected = false;
 
-  function ogw($username,$password,$host,$db)
+  function __construct($username,$password,$host,$db)
   {
     $this->ogo  = new pgre_sql($username,$password,$host,$db);
 

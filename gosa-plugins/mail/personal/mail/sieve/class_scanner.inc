@@ -2,7 +2,7 @@
 
 class Scanner
 {
-	function Scanner(&$script)
+	function __construct(&$script)
 	{
 		$this->_construct($script);
 	}

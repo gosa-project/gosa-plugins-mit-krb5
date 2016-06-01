@@ -29,7 +29,7 @@ class printerPPDDialog extends plugin
     var $add_ppd_later            = "";
     var $add_later_msg_dialog     = NULL;
 
-    function printerPPDDialog (&$config, $dn= NULL, $ppdfile=NULL )
+    function __construct(&$config, $dn= NULL, $ppdfile=NULL )
     {
         plugin::plugin ($config, $dn);
         $this->depselect = $this->config->current['BASE'];

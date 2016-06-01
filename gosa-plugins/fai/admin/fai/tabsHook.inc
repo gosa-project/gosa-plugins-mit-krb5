@@ -5,7 +5,7 @@ class tabsHook extends tabs
   var $base= "";
   var $parent ="";
 
-  function tabsHook($config, $data, $dn,$category)
+  function __construct($config, $data, $dn,$category)
   {
 	tabs::tabs($config, $data, $dn,$category);
 	/* Add references/acls/snapshots */

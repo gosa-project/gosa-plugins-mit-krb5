@@ -8,7 +8,7 @@ class applicationParameters extends plugin
   /* attribute list for save action */
   var $attributes= array("gosaApplicationParameter");
 
-  function applicationParameters (&$config, $dn= NULL, $parent= NULL)
+  function __construct(&$config, $dn= NULL, $parent= NULL)
   {
     plugin::plugin ($config, $dn, $parent);
 

@@ -62,7 +62,7 @@ class workgeneric extends plugin
 
     var $kerberos_key_service = NULL;
 
-    function workgeneric (&$config, $dn= NULL, $parent= NULL)
+    function __construct(&$config, $dn= NULL, $parent= NULL)
     {
         $this->fai_activated = $config->pluginEnabled("faiManagement");
 

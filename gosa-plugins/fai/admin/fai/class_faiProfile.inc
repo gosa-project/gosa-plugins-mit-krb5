@@ -25,7 +25,7 @@ class faiProfile extends plugin
 
     var $classSelect;
 
-    function faiProfile(&$config, $dn= NULL)
+    function __construct(&$config, $dn= NULL)
     {
         /* Load Attributes */
         plugin::plugin ($config, $dn);

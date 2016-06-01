@@ -31,7 +31,7 @@ class kolabAccount extends plugin
       @param  $dn       DN of the currently edited object
       @param  $parent   The parent object, used to fetch Attributes.
    */
-  function kolabAccount (&$config, $dn= NULL,$parent = NULL)
+  function __construct(&$config, $dn= NULL,$parent = NULL)
   {
     plugin::plugin ($config, $dn, $parent);
 

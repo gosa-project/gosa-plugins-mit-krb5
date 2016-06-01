@@ -52,7 +52,7 @@ class servapacheVhostEdit extends plugin
     var $VhostObject               = array();
 
 
-    function servapacheVhostEdit ($config, $dn= NULL,$attrs = array())
+    function __construct($config, $dn= NULL,$attrs = array())
     {
         plugin::plugin ($config, $dn);
         if(!count($attrs)){

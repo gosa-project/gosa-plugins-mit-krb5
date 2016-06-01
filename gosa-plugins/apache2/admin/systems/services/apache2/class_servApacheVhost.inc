@@ -38,7 +38,7 @@ class servapache extends goService
     var $initially_was_account;
     var $krb_service_prefix = "HTTP/";
 
-    function servapache ($config, $dn= NULL, $parent= NULL)
+    function __construct($config, $dn= NULL, $parent= NULL)
     {
         plugin::plugin ($config, $dn, $parent);
 

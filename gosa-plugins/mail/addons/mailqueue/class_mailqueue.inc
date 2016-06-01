@@ -25,7 +25,7 @@ class mailqueue extends plugin
   /* Logging detection */
   var $view_logged    = FALSE;
 
-  function mailqueue(&$config, $dn= NULL)
+  function __construct(&$config, $dn= NULL)
   {
     $this->config   = &$config;
     $this->si_queue = new si_mailqueue($this->config);

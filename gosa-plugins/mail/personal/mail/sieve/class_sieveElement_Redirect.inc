@@ -27,7 +27,7 @@ class sieve_redirect
     return($msgs);
   }
 
-  function sieve_redirect($data,$object_id)
+  function __construct($data,$object_id)
   {
     $this->object_id = $object_id;
 

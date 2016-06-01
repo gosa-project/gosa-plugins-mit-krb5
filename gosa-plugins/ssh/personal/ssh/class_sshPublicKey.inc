@@ -31,7 +31,7 @@ class sshPublicKey extends plugin
   var $enabled= false;
   var $acl;
 
-  function sshPublicKey(&$config, $dn, $acl)
+  function __construct(&$config, $dn, $acl)
   {
     /* Configuration is fine, allways */
     $this->initTime = microtime(TRUE);

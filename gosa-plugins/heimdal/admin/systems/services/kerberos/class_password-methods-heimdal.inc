@@ -57,7 +57,7 @@ class passwordMethodheimdal extends passwordMethod
   var $attrs                  = array();
   var $is_account             = FALSE;
 
-	function passwordMethodheimdal(&$config,$dn = "new")  
+	function __construct(&$config,$dn = "new")  
 	{
     $this->config= $config;
     $this->parent_dn = $dn;

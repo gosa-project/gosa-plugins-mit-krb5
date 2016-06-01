@@ -17,7 +17,7 @@ class sieve_if
    *  $elements   contains all tokens that belongs to this if/else tag
    *  $object_id  cotains an unique tag id, to be able to create uniqe html post names
    */
-  function sieve_if($elements,$object_id,$parent)
+  function __construct($elements,$object_id,$parent)
   {
     $this->parent = $parent;
     $this->object_id       = $object_id;

@@ -12,7 +12,7 @@ class My_Parser extends Parser
 	var $parent = NULL;
 	var $registeredExtensions_ =array();
 
-	function My_Parser($parent)
+	function __construct($parent)
 	{
 		$this->registeredExtensions_ = array();		
 		$this->parent = $parent;

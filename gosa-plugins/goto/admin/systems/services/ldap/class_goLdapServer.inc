@@ -24,7 +24,7 @@ class goLdapServer extends goService{
 
     var $krb_service_prefix = "ldap/";
 
-    function goLdapServer(&$config,$dn)
+    function __construct(&$config,$dn)
     {
         goService::goService($config,$dn);
         $this->DisplayName = _("LDAP service");

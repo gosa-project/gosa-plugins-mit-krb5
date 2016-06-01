@@ -52,7 +52,7 @@ class goKrbServer extends goService{
       @param  String  The object dn we are currently editing.
       @param  Object  The parent object.
    */ 
-  public function goKrbServer(&$config,$dn,$parent)
+  public function __construct(&$config,$dn,$parent)
   {
     goService::goService($config,$dn);
     $this->DisplayName = _("Kerberos service");

@@ -18,7 +18,7 @@ class goKioskService extends goService{
     var $gotoKioskProfile = array();
     var $server_path      = "http://%cn/kiosk";
 
-    function goKioskService(&$config, $dn, $parent)
+    function __construct(&$config, $dn, $parent)
     {
         goService::goService($config,$dn);
 

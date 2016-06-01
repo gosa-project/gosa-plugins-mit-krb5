@@ -58,7 +58,7 @@ class termgeneric extends plugin
     var $kerberos_key_service = NULL;
 
 
-    function termgeneric (&$config, $dn= NULL, $parent= NULL)
+    function __construct(&$config, $dn= NULL, $parent= NULL)
     {
         /* Check if FAI is activated */
         $this->fai_activated = $config->pluginEnabled("faiManagement");

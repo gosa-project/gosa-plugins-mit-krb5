@@ -5,7 +5,7 @@ class tabsVariable extends tabs
   var $base= "";
   var $parent ="";
 
-  function tabsVariable($config, $data, $dn,$category)
+  function __construct($config, $data, $dn,$category)
   {
 	tabs::tabs($config, $data, $dn, $category);
 

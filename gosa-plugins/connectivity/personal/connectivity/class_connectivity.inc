@@ -27,7 +27,7 @@ class connectivity extends plugin
 
   var $multiple_support = TRUE;
 
-  function connectivity (&$config, $dn= NULL,$parent =NULL)
+  function __construct(&$config, $dn= NULL,$parent =NULL)
   {
     /* Preseed permissions */
     $this->initTime = microtime(TRUE);

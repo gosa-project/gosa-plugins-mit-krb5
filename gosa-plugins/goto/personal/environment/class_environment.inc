@@ -83,7 +83,7 @@ class environment extends plugin
   var $shareList = NULL;
 
 
-  function environment (&$config, $dn= NULL)
+  function __construct(&$config, $dn= NULL)
   {
     plugin::plugin ($config, $dn);
 

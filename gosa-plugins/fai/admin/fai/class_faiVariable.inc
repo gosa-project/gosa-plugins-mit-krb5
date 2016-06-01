@@ -33,7 +33,7 @@ class faiVariable extends plugin
   var $ui   ;
   var $view_logged      = FALSE;
 
-  function faiVariable (&$config, $dn= NULL)
+  function __construct(&$config, $dn= NULL)
   {
     /* Load Attributes */
     plugin::plugin ($config, $dn);

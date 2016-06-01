@@ -23,7 +23,7 @@ class faiScriptEntry extends plugin
     var $enc_after_edit = "";
     var $write_protect = FALSE;
 
-    function faiScriptEntry (&$config, $dn= NULL,$object=false)
+    function __construct(&$config, $dn= NULL,$object=false)
     {
         plugin::plugin ($config, NULL);
         if($dn != "new"){

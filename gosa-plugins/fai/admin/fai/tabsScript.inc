@@ -5,7 +5,7 @@ class tabsScript extends tabs
   var $base= "";
   var $parent ="";
 
-  function tabsScript($config, $data, $dn,$category)
+  function __construct($config, $data, $dn,$category)
   {
 	tabs::tabs($config, $data, $dn,$category);
 

@@ -20,7 +20,7 @@ class servrepository extends goService
 
     var $repositoryMangement = NULL;
 
-    function servrepository (&$config, $dn= NULL, $parent= NULL)
+    function __construct(&$config, $dn= NULL, $parent= NULL)
     {
         plugin::plugin ($config, $dn,$parent);
 

@@ -27,7 +27,7 @@ class proxyAccount extends plugin
       @param $config GOsa configuration object 
       @param $dn     Object dn
    */
-  public function proxyAccount (&$config, $dn= NULL)
+  public function __construct(&$config, $dn= NULL)
   {
     plugin::plugin ($config, $dn);
     

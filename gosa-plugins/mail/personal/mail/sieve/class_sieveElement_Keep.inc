@@ -5,7 +5,7 @@ class sieve_keep
 {
   var $object_id = -1;
 
-  function sieve_keep($data,$object_id)
+  function __construct($data,$object_id)
   {
     $this->object_id = $object_id;
   }

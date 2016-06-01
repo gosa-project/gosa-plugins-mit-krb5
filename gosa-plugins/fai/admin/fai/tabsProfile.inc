@@ -5,7 +5,7 @@ class tabsProfile extends tabs
   var $base= "";
   var $parent ="";
 
-  function tabsProfile($config, $data, $dn,$category)
+  function __construct($config, $data, $dn,$category)
   {
 	tabs::tabs($config, $data, $dn,$category);
 

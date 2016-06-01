@@ -61,7 +61,7 @@ class termservice extends plugin
     var $selected_xdmcp_servers = array();
     var $inherited_xdmcp_servers = array();
 
-    function termservice (&$config, $dn= NULL, $parent= NULL)
+    function __construct(&$config, $dn= NULL, $parent= NULL)
     {
         plugin::plugin ($config, $dn, $parent);
         $this->orig_dn= $this->dn;

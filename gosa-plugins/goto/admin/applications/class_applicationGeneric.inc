@@ -30,7 +30,7 @@ class application extends plugin
 
   var $baseSelector;
 
-  function application (&$config, $dn= NULL, $parent= NULL)
+  function __construct(&$config, $dn= NULL, $parent= NULL)
   {
     plugin::plugin ($config, $dn, $parent);
 

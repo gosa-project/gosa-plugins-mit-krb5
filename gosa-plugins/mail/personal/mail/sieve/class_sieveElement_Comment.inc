@@ -13,7 +13,7 @@ class sieve_comment
     return($str);
   } 
     
-  function sieve_comment($data,$object_id)
+  function __construct($data,$object_id)
   {
     $this->object_id = $object_id;
 

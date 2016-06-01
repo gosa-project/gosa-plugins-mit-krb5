@@ -27,7 +27,7 @@ class faiHookEntry extends plugin
   var $write_protect = FALSE;
 
   
-  function faiHookEntry (&$config, $dn= NULL,$object=false)
+  function __construct(&$config, $dn= NULL,$object=false)
   {
     plugin::plugin ($config, NULL);
     if($dn != "new"){

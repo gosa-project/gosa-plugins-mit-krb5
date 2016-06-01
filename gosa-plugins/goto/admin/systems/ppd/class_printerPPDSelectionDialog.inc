@@ -13,7 +13,7 @@ class printerPPDSelectionDialog extends plugin
     var $Vendor               = "";
     var $selectedPPD = "";
 
-    function printerPPDSelectionDialog (&$config, $dn= NULL,$list=false,$headers=false,$ppd=false)
+    function __construct(&$config, $dn= NULL,$list=false,$headers=false,$ppd=false)
     {
         plugin::plugin ($config, $dn);
         $this->list       = $list;

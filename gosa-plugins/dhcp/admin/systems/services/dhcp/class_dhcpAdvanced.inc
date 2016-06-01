@@ -32,7 +32,7 @@ class dhcpAdvanced extends plugin
     var $objectclasses= array();
     var $parent;
 
-    function dhcpAdvanced()
+    function __construct()
     {
         /* This is always an account */
         $this->initTime = microtime(TRUE);

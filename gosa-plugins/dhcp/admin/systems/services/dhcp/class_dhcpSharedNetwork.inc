@@ -23,7 +23,7 @@ class dhcpSharedNetwork extends dhcpPlugin
     /* attribute list for save action */
     var $objectclasses= array('top', 'dhcpSharedNetwork');
 
-    function dhcpSharedNetwork($parent,$attrs)
+    function __construct($parent,$attrs)
     {
         dhcpPlugin::dhcpPlugin($parent,$attrs);
 

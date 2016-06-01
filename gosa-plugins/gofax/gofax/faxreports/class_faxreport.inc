@@ -41,7 +41,7 @@ class faxreport extends plugin
     var $uidToDN = array();
 
     /* Create class */
-    function faxreport (&$config, &$ui)
+    function __construct(&$config, &$ui)
     {
         $this->initTime = microtime(TRUE);
 

@@ -4,7 +4,7 @@ class sieve_block_end
 {
   var $object_id= -1;
   
-  function sieve_block_end($data = NULL,$object_id)
+  function __construct($data = NULL,$object_id)
   {
     $this->object_id = $object_id;
   }

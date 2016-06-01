@@ -10,7 +10,7 @@ class pgre_sql{
 	var $pwd;
 	var $is_connected = false;
 
-	function pgre_sql($user,$pwd,$server,$db)
+	function __construct($user,$pwd,$server,$db)
 	{
 		$this->user   = $user;
 		$this->pwd  = $pwd;

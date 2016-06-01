@@ -42,7 +42,7 @@ class oxchangeAccount extends plugin
   var $uid ="";
   var $parent = NULL;
 
-  function oxchangeAccount (&$config, $dn= NULL,&$parent)
+  function __construct(&$config, $dn= NULL,&$parent)
   {
     plugin::plugin ($config, $dn,$parent);
     $this->parent = &$parent;

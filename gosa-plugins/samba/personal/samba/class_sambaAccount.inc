@@ -92,7 +92,7 @@ class sambaAccount extends plugin
     var $multiple_sambaUserWorkstations = array();
 
 
-    function sambaAccount (&$config, $dn= NULL)
+    function __construct(&$config, $dn= NULL)
     {
 
         plugin::plugin ($config, $dn);

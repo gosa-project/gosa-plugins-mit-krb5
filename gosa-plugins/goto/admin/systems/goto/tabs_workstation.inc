@@ -5,7 +5,7 @@ class worktabs extends tabs
 
   public $was_activated = FALSE;
 
-  function worktabs($config, $data, $dn,$category,$hide_refs = FALSE, $hide_acls = FALSE)
+  function __construct($config, $data, $dn,$category,$hide_refs = FALSE, $hide_acls = FALSE)
   {
     
     /* Save dn */

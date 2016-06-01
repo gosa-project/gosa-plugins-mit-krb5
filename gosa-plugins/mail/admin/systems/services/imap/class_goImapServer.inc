@@ -41,7 +41,7 @@ class goImapServer extends goService {
     var $Actions              = array();  
     var $conflicts            = array("goImapServer");
 
-    function goImapServer(&$config,$dn)
+    function __construct(&$config,$dn)
     {
         goService::goService($config,$dn);
 

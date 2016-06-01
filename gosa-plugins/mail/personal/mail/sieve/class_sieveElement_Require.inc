@@ -7,7 +7,7 @@ class sieve_require
   var $parent = NULL;  
   var $skip_save_object =FALSE;
 
-  function sieve_require($data,$object_id,$parent)
+  function __construct($data,$object_id,$parent)
   {
     $this->parent = $parent;
     $this->object_id = $object_id;

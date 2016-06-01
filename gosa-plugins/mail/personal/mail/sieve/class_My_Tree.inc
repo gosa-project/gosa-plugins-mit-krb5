@@ -15,7 +15,7 @@ class My_Tree extends Tree
   var $pap		= array();
   var $parent = NULL;
 
-  function My_Tree(&$root,$parent)
+  function __construct(&$root,$parent)
   {
     $this->parent = $parent;
     $this->_construct($root);

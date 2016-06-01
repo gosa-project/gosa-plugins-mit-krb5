@@ -16,7 +16,7 @@ class ArpNewDevice extends plugin
 
     var $gotoIntegration = FALSE;
 
-    function ArpNewDevice ($config, $dn= NULL, $parent= NULL)
+    function __construct($config, $dn= NULL, $parent= NULL)
     {
         plugin :: plugin($config,$dn);
         $this->netConfigDNS = new termDNS($this->config,$this,$this->objectclasses);

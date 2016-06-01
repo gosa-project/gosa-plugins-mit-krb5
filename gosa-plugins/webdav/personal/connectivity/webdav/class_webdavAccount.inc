@@ -15,7 +15,7 @@ class webdavAccount extends plugin
 
   var $multiple_support =TRUE;
 
-  function webdavAccount (&$config, $dn= NULL)
+  function __construct(&$config, $dn= NULL)
   {
     plugin::plugin ($config, $dn);
     

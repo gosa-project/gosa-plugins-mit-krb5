@@ -20,7 +20,7 @@ class faiPackageConfiguration extends plugin
       @param  String  The release name (e.g. edge)
       @param  Array   The current package configuration.
    */
-  function faiPackageConfiguration (&$config, $dn= NULL,$obj,$release,$pkg_config)
+  function __construct(&$config, $dn= NULL,$obj,$release,$pkg_config)
   {
     plugin::plugin ($config, $dn);
     $this->obj = $obj;

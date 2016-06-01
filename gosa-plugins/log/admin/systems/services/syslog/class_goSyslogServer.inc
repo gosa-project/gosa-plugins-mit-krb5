@@ -21,7 +21,7 @@ class goSyslogServer extends goService{
   var $goSyslogServerStatus  = "";
   var $view_logged  =FALSE;
  
-  function goSyslogServer(&$config,$dn)
+  function __construct(&$config,$dn)
   {
     goService::goService($config,$dn);
     $this->DisplayName = _("Syslog server");

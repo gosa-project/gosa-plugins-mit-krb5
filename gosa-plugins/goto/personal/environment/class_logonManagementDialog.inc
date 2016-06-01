@@ -20,7 +20,7 @@ class logonManagementDialog extends plugin
 
   var $real_LogonName = "";
 
-  function logonManagementDialog (&$config, $dn= NULL,$data=false)
+  function __construct(&$config, $dn= NULL,$data=false)
   {
     plugin::plugin ($config, $dn);
     

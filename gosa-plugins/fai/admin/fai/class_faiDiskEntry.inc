@@ -26,7 +26,7 @@ class faiDiskEntry extends plugin
   
   var $lvmDevices          = array();
 
-  function faiDiskEntry (&$config, $dn= NULL,$parent,$disk,$type)
+  function __construct(&$config, $dn= NULL,$parent,$disk,$type)
   {
     plugin::plugin ($config, $dn);
   

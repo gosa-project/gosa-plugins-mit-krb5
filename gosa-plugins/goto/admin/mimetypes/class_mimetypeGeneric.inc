@@ -50,7 +50,7 @@ class mimetype extends plugin
 
     var $baseSelector;
 
-    function mimetype(&$config,$dn= NULL)
+    function __construct(&$config,$dn= NULL)
     {
         plugin::plugin ($config, $dn);
 

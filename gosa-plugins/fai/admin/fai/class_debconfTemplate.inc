@@ -8,7 +8,7 @@ class debconf
   var $template= array();
 
 
-  function debconf($language= "")
+  function __construct($language= "")
   {
     $this->set_language($language);
   }

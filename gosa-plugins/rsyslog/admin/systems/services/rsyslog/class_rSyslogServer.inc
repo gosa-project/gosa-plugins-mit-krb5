@@ -23,7 +23,7 @@ class rSyslogServer extends goService{
     var $view_logged   = FALSE;
 
 
-    function rSyslogServer(&$config,$dn)
+    function __construct(&$config,$dn)
     {
         goService::goService($config,$dn);
         $this->DisplayName = _("Logging");

@@ -35,7 +35,7 @@ class termgroup extends plugin
     var $member_of_ogroup= false;
     var $members_inherit_from_group = false;
 
-    function termgroup (&$config, $dn= NULL, $parent= NULL)
+    function __construct(&$config, $dn= NULL, $parent= NULL)
     {
         /***************
           Some  initialisations

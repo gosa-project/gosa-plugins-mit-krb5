@@ -21,7 +21,7 @@ class rsyslog extends plugin
   var $limits = array(20,50,100,200,500,1000,'-');
   var $page   = 0;
 
-  function rsyslog (&$config, $dn= NULL)
+  function __construct(&$config, $dn= NULL)
   {
       $this->initTime = microtime(TRUE);
 

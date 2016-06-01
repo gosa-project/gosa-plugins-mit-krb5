@@ -21,7 +21,7 @@ class deviceGeneric extends plugin
 
     public $CopyPasteVars   = array("orig_cn","description","vendor","devID","serial","base");
 
-    public function deviceGeneric(&$config,$dn = NULL)
+    public function __construct(&$config,$dn = NULL)
     {
         plugin::plugin($config,$dn);
 

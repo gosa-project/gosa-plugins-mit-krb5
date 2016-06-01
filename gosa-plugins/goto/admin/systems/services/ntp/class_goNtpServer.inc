@@ -22,7 +22,7 @@ class goNtpServer extends goService{
     var $cn               = "";
     var $view_logged  =FALSE;
 
-    function goNtpServer(&$config,$dn)
+    function __construct(&$config,$dn)
     {
         goService::goService($config,$dn);
         $this->DisplayName = _("Time service (NTP)");

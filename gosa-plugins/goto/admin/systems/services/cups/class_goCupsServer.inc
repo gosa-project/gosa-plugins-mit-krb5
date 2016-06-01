@@ -21,7 +21,7 @@ class goCupsServer extends goService{
     var $goCupsServerStatus  = "";
     var $view_logged  =FALSE;
 
-    function goCupsServer(&$config,$dn)
+    function __construct(&$config,$dn)
     {
         goService::goService($config,$dn);
         $this->DisplayName = _("Print service");
