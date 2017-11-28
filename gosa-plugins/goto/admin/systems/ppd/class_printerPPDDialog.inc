@@ -31,7 +31,7 @@ class printerPPDDialog extends plugin
 
     function __construct(&$config, $dn= NULL, $ppdfile=NULL )
     {
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
         $this->depselect = $this->config->current['BASE'];
 
         $this->ui = get_userinfo();

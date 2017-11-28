@@ -4,7 +4,7 @@ class faxblocktabs extends tabs
 {
   function __construct($config, $data, $dn)
   {
-    tabs::tabs($config, $data, $dn, 'gofaxlist');
+    tabs::__construct($config, $data, $dn, 'gofaxlist');
 
     /* Add references/acls/snapshots */
     $this->addSpecialTabs();

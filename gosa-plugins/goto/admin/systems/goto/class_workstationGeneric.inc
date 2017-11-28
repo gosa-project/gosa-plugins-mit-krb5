@@ -66,7 +66,7 @@ class workgeneric extends plugin
     {
         $this->fai_activated = $config->pluginEnabled("faiManagement");
 
-        plugin::plugin ($config, $dn, $parent);
+        plugin::__construct ($config, $dn, $parent);
 
         if(class_available("krbHostKeys")){
             $this->kerberos_key_service = new krbHostKeys($this->config,$this);

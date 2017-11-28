@@ -9,7 +9,7 @@ class goto_import_file extends plugin
 
     public function __construct($config,&$parent)
     {
-        plugin::plugin($config,NULL);
+        plugin::__construct($config,NULL);
         $this->parent = $parent;
         $this->daemon_events  = DaemonEvent::get_event_types( SYSTEM_EVENT | HIDDEN_EVENT);
 

@@ -57,7 +57,7 @@ class krbHostKeys extends plugin
 
         /* Initialize this plugin 
          */
-        plugin::plugin($config, NULL);
+        plugin::__construct($config, NULL);
         $this->object = $object;
 
         $this->acl_category = &$this->object->acl_category;

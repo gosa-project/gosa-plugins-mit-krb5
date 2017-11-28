@@ -38,7 +38,7 @@ class sudoOption extends plugin
      */
     function __construct(&$config, $dn= NULL)
     {
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
 
         /****
           Create a list of known options

@@ -35,7 +35,7 @@ class faiSummaryTab extends plugin{
 
   function __construct(&$config,$dn)//,$parent)
   {
-    plugin::plugin($config,$dn);//,$parent);
+    plugin::__construct($config,$dn);//,$parent);
 
     $this->ui = get_userinfo();
 

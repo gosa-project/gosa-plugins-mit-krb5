@@ -29,7 +29,7 @@ class faiHookEntry extends plugin
   
   function __construct(&$config, $dn= NULL,$object=false)
   {
-    plugin::plugin ($config, NULL);
+    plugin::__construct ($config, NULL);
     if($dn != "new"){
       $this->orig_cn= $object['cn'];
       $this->dn=$object['dn'];

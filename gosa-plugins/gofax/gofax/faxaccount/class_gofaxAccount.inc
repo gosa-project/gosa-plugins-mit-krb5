@@ -50,7 +50,7 @@ class gofaxAccount extends plugin
   function __construct(&$config, $dn= NULL)
   {
     /* General initialization */
-    plugin::plugin ($config, $dn);
+    plugin::__construct ($config, $dn);
 
     /* Set uid, it is used in handle_post_events */
     if(isset($this->attrs['uid'])){

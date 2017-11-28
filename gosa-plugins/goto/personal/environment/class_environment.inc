@@ -85,7 +85,7 @@ class environment extends plugin
 
   function __construct(&$config, $dn= NULL)
   {
-    plugin::plugin ($config, $dn);
+    plugin::__construct ($config, $dn);
 
     /* Setting uid to default */
     if(isset($this->attrs['uid'][0])){
@@ -1421,7 +1421,7 @@ class environment extends plugin
    */
   function init_multiple_support($attrs,$all)
   {
-    plugin::init_multiple_support($attrs,$all);
+    plugin::__constructit_multiple_support($attrs,$all);
 
     /* Prepare Shares */
     if((isset($this->multi_attrs_all['gotoShare']))&&(is_array($this->multi_attrs_all['gotoShare']))){

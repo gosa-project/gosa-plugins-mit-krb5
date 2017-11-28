@@ -22,7 +22,7 @@ class SelectDeviceType extends plugin
         }else{
             $this->dns = $dn;
         }
-        plugin::plugin ($config, NULL);
+        plugin::__construct ($config, NULL);
 
         /* Get object groups */
         $ldap = $this->config->get_ldap_link();

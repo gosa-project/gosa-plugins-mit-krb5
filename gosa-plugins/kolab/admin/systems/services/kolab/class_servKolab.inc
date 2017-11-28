@@ -44,7 +44,7 @@ class servkolab extends goService
         $this->dn       = "k=kolab,".$config->current['BASE'];
 
         /* Load variables, if given*/
-        plugin::plugin($config, $this->dn);
+        plugin::__construct($config, $this->dn);
 
         /* Copy needed attributes */
         foreach($this->attributes as $val) {

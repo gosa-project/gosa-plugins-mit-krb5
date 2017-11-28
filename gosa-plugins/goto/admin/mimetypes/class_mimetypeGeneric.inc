@@ -52,7 +52,7 @@ class mimetype extends plugin
 
     function __construct(&$config,$dn= NULL)
     {
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
 
         /* Save original dn */
         $this->orig_dn = $dn;	

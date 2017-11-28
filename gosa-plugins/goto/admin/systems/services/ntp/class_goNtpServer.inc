@@ -24,7 +24,7 @@ class goNtpServer extends goService{
 
     function __construct(&$config,$dn)
     {
-        goService::goService($config,$dn);
+        goService::__construct($config,$dn);
         $this->DisplayName = _("Time service (NTP)");
 
         /* Load arrays */

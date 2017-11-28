@@ -41,7 +41,7 @@ class gotoLogView extends plugin
            and use this macAddress.
          */
         if(is_object($parent) && $dn != "" && $dn != "new"){
-            plugin::plugin($config,$dn,$parent);
+            plugin::__construct($config,$dn,$parent);
         } 
 
         /* Get correct macAddress.

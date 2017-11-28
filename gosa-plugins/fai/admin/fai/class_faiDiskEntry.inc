@@ -28,7 +28,7 @@ class faiDiskEntry extends plugin
 
   function __construct(&$config, $dn= NULL,$parent,$disk,$type)
   {
-    plugin::plugin ($config, $dn);
+    plugin::__construct ($config, $dn);
   
     // Set default attributes 
     $this->parent = $parent;

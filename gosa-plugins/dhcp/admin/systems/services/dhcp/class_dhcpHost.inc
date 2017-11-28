@@ -29,7 +29,7 @@ class dhcpHost extends dhcpPlugin
 
     function __construct($parent,$attrs,$host_exists_in_gosa = FALSE)
     {
-        dhcpPlugin::dhcpPlugin($parent,$attrs);
+        dhcpPlugin::__construct($parent,$attrs);
 
         /* Load attributes */
         if (!$this->new){

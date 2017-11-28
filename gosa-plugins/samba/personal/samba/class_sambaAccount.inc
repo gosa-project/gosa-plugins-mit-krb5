@@ -95,7 +95,7 @@ class sambaAccount extends plugin
     function __construct(&$config, $dn= NULL)
     {
 
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
 
         // Set current uid if possible.
         if(isset($this->attrs['uid'][0])){
@@ -1340,7 +1340,7 @@ class sambaAccount extends plugin
 
     function init_multiple_support($attrs,$all)
     {
-        plugin::init_multiple_support($attrs,$all);
+        plugin::__constructit_multiple_support($attrs,$all);
 
         $this->multiple_sambaUserWorkstations = array();
         if(isset($all['sambaUserWorkstations'])){

@@ -17,7 +17,7 @@ class askClassName extends plugin
   {
     $this->ui = $ui;
     $this->objectClass = $objectClass;
-    plugin::plugin ($config, $dn);
+    plugin::__construct ($config, $dn);
   }
 
   function execute()

@@ -48,7 +48,7 @@ class wingeneric extends plugin
 
   function __construct(&$config, $dn= NULL, $parent= NULL)
   {
-    plugin::plugin ($config, $dn, $parent);
+    plugin::__construct ($config, $dn, $parent);
     $this->netConfigDNS = new termDNS($this->config,$this,$this->objectclasses,FALSE,"uid");
     $this->netConfigDNS->cn =  preg_replace("/\\\$\$/","",$this->uid);
     $this->netConfigDNS->MACisMust = FALSE;

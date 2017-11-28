@@ -50,7 +50,7 @@ class mailgroup extends plugin
 
     function __construct (&$config, $dn= NULL, $base_object= NULL)
     {
-        plugin::plugin($config, $dn);
+        plugin::__construct($config, $dn);
 
         /* Get attributes from parent object
          */
@@ -1036,7 +1036,7 @@ class mailgroup extends plugin
 
     function init_multiple_support($attrs,$all)
     {
-        plugin::init_multiple_support($attrs,$all);
+        plugin::__constructit_multiple_support($attrs,$all);
 
         $this->gosaMailForwardingAddress = array();
         if(isset($attrs['gosaMailForwardingAddress'])){

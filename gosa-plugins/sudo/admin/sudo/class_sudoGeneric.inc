@@ -63,7 +63,7 @@ class sudo extends plugin
      */
     function __construct(&$config, $dn= NULL)
     {
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
 
 	$this->systemEnabled = class_available("systemSelect");
 

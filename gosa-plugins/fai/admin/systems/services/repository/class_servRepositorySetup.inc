@@ -19,7 +19,7 @@ class servRepositorySetup  extends plugin
 
     function __construct(&$config, $dn= NULL,$data = false)
     {
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
 
         if(isset($this->attrs['cn'][0])){
             $this->cn=$this->attrs['cn'][0];

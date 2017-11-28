@@ -37,7 +37,7 @@ class opengwAccount extends plugin
 
     function __construct(&$config, $dn= NULL)
     {
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
 
         /* Setting uid to default */
         if(isset($this->attrs['uid'][0])){

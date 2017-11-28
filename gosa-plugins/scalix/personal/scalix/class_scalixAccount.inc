@@ -68,7 +68,7 @@ class scalixAccount extends plugin
     }
 
     /* Load bases attributes */
-    plugin::plugin($config, $dn);
+    plugin::__construct($config, $dn);
 
     /* Load attributes */
     if ($dn != "new"){

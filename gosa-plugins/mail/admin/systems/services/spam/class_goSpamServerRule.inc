@@ -10,7 +10,7 @@ class goSpamServerRule extends plugin {
 
     function __construct(&$config,$dn,$name = "",$rule ="")
     {
-        plugin::plugin($config,$dn);
+        plugin::__construct($config,$dn);
         $this->name = $this->orig_name= $name;
         $this->rule = $rule;
     }

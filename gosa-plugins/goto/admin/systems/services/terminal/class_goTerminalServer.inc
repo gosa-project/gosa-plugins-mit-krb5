@@ -22,7 +22,7 @@ class goTerminalServer extends goService{
 
     function __construct(&$config,$dn)
     {
-        goService::goService($config,$dn);
+        goService::__construct($config,$dn);
         $this->DisplayName = _("Terminal service");
 
         $tmp = array();

@@ -74,7 +74,7 @@ class netatalk extends plugin {
 
     /* Include config object */
     $this->config = $config;
-    plugin::plugin($config, $dn);
+    plugin::__construct($config, $dn);
 
     /* set user id */    
     if(isset($this->attrs['uid'])){

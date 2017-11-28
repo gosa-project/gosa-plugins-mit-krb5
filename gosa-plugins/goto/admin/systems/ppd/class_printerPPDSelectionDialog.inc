@@ -15,7 +15,7 @@ class printerPPDSelectionDialog extends plugin
 
     function __construct(&$config, $dn= NULL,$list=false,$headers=false,$ppd=false)
     {
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
         $this->list       = $list;
         $this->header     = $headers;
         $this->depselect  = $this->config->current['BASE'];

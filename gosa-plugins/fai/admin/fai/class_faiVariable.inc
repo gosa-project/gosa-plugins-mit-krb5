@@ -36,7 +36,7 @@ class faiVariable extends plugin
   function __construct(&$config, $dn= NULL)
   {
     /* Load Attributes */
-    plugin::plugin ($config, $dn);
+    plugin::__construct ($config, $dn);
 
     if($dn != "new"){
       $this->dn =$dn;

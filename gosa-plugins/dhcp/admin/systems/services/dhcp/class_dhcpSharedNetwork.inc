@@ -25,7 +25,7 @@ class dhcpSharedNetwork extends dhcpPlugin
 
     function __construct($parent,$attrs)
     {
-        dhcpPlugin::dhcpPlugin($parent,$attrs);
+        dhcpPlugin::__construct($parent,$attrs);
 
         $this->advanced->setAutoStatements(array("server-identifier", "default-lease-time",
                     "max-lease-time", "min-lease-time", "authoritative", "deny unknown-clients",

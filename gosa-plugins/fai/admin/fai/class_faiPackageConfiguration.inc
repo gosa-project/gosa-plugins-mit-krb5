@@ -22,7 +22,7 @@ class faiPackageConfiguration extends plugin
    */
   function __construct(&$config, $dn= NULL,$obj,$release,$pkg_config)
   {
-    plugin::plugin ($config, $dn);
+    plugin::__construct ($config, $dn);
     $this->obj = $obj;
     $this->release = $release;
     $this->pkg_config = $pkg_config;

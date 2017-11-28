@@ -43,7 +43,7 @@ class goImapServer extends goService {
 
     function __construct(&$config,$dn)
     {
-        goService::goService($config,$dn);
+        goService::__construct($config,$dn);
 
         $this->DisplayName = _("IMAP/POP3 service");
 

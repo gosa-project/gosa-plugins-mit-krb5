@@ -41,7 +41,7 @@ class goMailServer extends goService{
 
     function __construct(&$config,$dn)
     {
-        goService::goService($config,$dn);
+        goService::__construct($config,$dn);
         $this->DisplayName = _("Mail SMTP service (Postfix)");
 
         $this->Actions = array( SERVICE_STOPPED=>SERVICE_STOPPED,

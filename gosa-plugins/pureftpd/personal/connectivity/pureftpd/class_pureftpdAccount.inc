@@ -30,7 +30,7 @@ class pureftpdAccount extends plugin
 
   function __construct(&$config, $dn= NULL, $parent= NULL)
   {
-    plugin::plugin ($config, $dn, $parent);
+    plugin::__construct ($config, $dn, $parent);
     
     /* Setting uid to default */
     if(isset($this->attrs['uid'][0])){
@@ -297,7 +297,7 @@ class pureftpdAccount extends plugin
 
   function init_multiple_support($attrs,$attr)
   {
-    plugin::init_multiple_support($attrs,$attr);
+    plugin::__constructit_multiple_support($attrs,$attr);
 
     if(isset($attrs['is_account'])){
       $this->is_account = $attrs['is_account'];

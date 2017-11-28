@@ -7,7 +7,7 @@ class apptabs extends tabs
 
   function __construct($config, $data, $dn,$category,$hide_refs = FALSE, $hide_acls = FALSE)
   {
-    tabs::tabs($config, $data, $dn,$category,$hide_refs, $hide_acls);
+    tabs::__construct($config, $data, $dn,$category,$hide_refs, $hide_acls);
 
     /* Add references/acls/snapshots */
     $this->addSpecialTabs();

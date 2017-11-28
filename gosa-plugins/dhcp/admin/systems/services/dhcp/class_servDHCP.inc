@@ -28,7 +28,7 @@ class servdhcp extends goService
 
     function __construct(&$config, $dn= NULL, $parent= NULL)
     {
-        plugin::plugin ($config, $dn, $parent);
+        plugin::__construct ($config, $dn, $parent);
 
         $this->serviceDN = "cn=dhcp,".$dn;
         $this->orig_dn = $dn;

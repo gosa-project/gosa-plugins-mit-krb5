@@ -22,7 +22,7 @@ class logonManagementDialog extends plugin
 
   function __construct(&$config, $dn= NULL,$data=false)
   {
-    plugin::plugin ($config, $dn);
+    plugin::__construct ($config, $dn);
     
     if($data){
       $this->LogonName        = $data['LogonName'];

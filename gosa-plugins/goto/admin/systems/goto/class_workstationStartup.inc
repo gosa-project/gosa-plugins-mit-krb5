@@ -66,7 +66,7 @@ class workstartup extends plugin
             $this->objectclasses  = array("GOhard");
         }
 
-        plugin::plugin ($config, $dn, $parent);
+        plugin::__construct ($config, $dn, $parent);
 
         /* Check for si daemon */
         $this->si_active = $this->config->get_cfg_value("core","gosaSupportURI") != "";

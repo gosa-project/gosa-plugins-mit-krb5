@@ -24,7 +24,7 @@ class sudotabs extends tabs
 {
   function __construct($config, $data, $dn)
   {
-    tabs::tabs($config, $data, $dn,"sudo");
+    tabs::__construct($config, $data, $dn,"sudo");
     $this->addSpecialTabs();
   }
 

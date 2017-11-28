@@ -43,7 +43,7 @@ class servdnseditZone extends plugin
 
     function __construct(&$config, $dn= NULL,$attrs = array())
     {
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
 
         /* All types with required attrs */
         $this->RecordTypes = DNS::getDnsRecordTypes(true); 

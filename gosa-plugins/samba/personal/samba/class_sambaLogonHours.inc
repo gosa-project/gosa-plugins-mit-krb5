@@ -12,7 +12,7 @@ class sambaLogonHours extends plugin
 
   function __construct(&$config, $dn, $slh, $acl = 'rw')
   {
-    plugin::plugin($config,$dn);
+    plugin::__construct($config,$dn);
     $this->sambaLogonHours = $slh;
     $this->acl = $acl;
 

@@ -41,7 +41,7 @@ class termgroup extends plugin
           Some  initialisations
          ***************/
 
-        plugin::plugin($config, $dn, $parent);
+        plugin::__construct($config, $dn, $parent);
         $ldap= $config->get_ldap_link();
 
         $this->is_account = true;

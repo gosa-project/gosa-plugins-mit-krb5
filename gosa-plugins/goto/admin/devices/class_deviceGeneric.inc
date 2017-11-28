@@ -23,7 +23,7 @@ class deviceGeneric extends plugin
 
     public function __construct(&$config,$dn = NULL)
     {
-        plugin::plugin($config,$dn);
+        plugin::__construct($config,$dn);
 
         $this->is_account = TRUE;
 

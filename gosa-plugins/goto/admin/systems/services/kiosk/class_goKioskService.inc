@@ -20,7 +20,7 @@ class goKioskService extends goService{
 
     function __construct(&$config, $dn, $parent)
     {
-        goService::goService($config,$dn);
+        goService::__construct($config,$dn);
 
         /* Get the current object name. 
          */

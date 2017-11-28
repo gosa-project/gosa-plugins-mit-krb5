@@ -31,7 +31,7 @@ class blocklistGeneric extends plugin
   
   function __construct($config,$dn = "new")
   {
-    plugin::plugin($config,$dn);
+    plugin::__construct($config,$dn);
 
     /* Set default list type */
     $this->type = BLOCK_LIST_SEND;

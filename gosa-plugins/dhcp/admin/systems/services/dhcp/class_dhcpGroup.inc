@@ -26,7 +26,7 @@ class dhcpGroup extends dhcpPlugin
     function __construct($parent,&$attrs)
     {
         /* Load statements / options */
-        dhcpPlugin::dhcpPlugin($parent,$attrs);
+        dhcpPlugin::__construct($parent,$attrs);
     }
 
     function execute()

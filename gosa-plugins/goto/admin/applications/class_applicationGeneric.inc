@@ -32,7 +32,7 @@ class application extends plugin
 
   function __construct(&$config, $dn= NULL, $parent= NULL)
   {
-    plugin::plugin ($config, $dn, $parent);
+    plugin::__construct ($config, $dn, $parent);
 
     /* Load icon */
     $ldap= $config->get_ldap_link();

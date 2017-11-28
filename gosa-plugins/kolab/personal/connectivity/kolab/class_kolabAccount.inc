@@ -33,7 +33,7 @@ class kolabAccount extends plugin
    */
   function __construct(&$config, $dn= NULL,$parent = NULL)
   {
-    plugin::plugin ($config, $dn, $parent);
+    plugin::__construct ($config, $dn, $parent);
 
     /* Setting uid to default */
     if(isset($this->attrs['uid'][0])){
@@ -598,7 +598,7 @@ class kolabAccount extends plugin
    */
   public function init_multiple_support($attrs,$all)
   {
-    plugin::init_multiple_support($attrs,$all);
+    plugin::__constructit_multiple_support($attrs,$all);
     if(isset($attrs['objectClass']) && in_array_strict("kolabInetOrgPerson",$attrs['objectClass'])){
       $this->is_account = TRUE;
     }

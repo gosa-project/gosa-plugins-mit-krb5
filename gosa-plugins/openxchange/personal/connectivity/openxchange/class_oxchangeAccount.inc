@@ -44,7 +44,7 @@ class oxchangeAccount extends plugin
 
   function __construct(&$config, $dn= NULL,&$parent)
   {
-    plugin::plugin ($config, $dn,$parent);
+    plugin::__construct ($config, $dn,$parent);
     $this->parent = &$parent;
     for ($i=0;$i<count($this->config->data['TABS']['CONNECTIVITY']);$i++){
       if($this->config->data['TABS']['CONNECTIVITY'][$i]['CLASS']=='oxchangeAccount') {

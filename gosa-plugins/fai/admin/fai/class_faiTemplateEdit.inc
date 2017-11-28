@@ -15,7 +15,7 @@ class faiTemplateEdit extends plugin
 
   function __construct(&$config, $dn, $value)
   {
-    plugin::plugin ($config, $dn);
+    plugin::__construct ($config, $dn);
     if(!function_exists("mb_detect_encoding")){
       $this->mb_extension = FALSE;
     }else{

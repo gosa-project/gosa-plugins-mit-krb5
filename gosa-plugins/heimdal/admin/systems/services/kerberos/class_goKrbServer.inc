@@ -54,7 +54,7 @@ class goKrbServer extends goService{
    */ 
   public function __construct(&$config,$dn,$parent)
   {
-    goService::goService($config,$dn);
+    goService::__construct($config,$dn);
     $this->DisplayName = _("Kerberos service");
     $this->parent = $parent;
 

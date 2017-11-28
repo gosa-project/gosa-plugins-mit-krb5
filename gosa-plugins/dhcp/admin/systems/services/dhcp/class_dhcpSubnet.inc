@@ -32,7 +32,7 @@ class dhcpSubnet extends dhcpPlugin
 
     function __construct($parent,$attrs)
     {
-        dhcpPlugin::dhcpPlugin($parent,$attrs);
+        dhcpPlugin::__construct($parent,$attrs);
 
         if (!$this->new){
             /* Load attributes */

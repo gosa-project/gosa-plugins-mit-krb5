@@ -54,7 +54,7 @@ class servapacheVhostEdit extends plugin
 
     function __construct($config, $dn= NULL,$attrs = array())
     {
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
         if(!count($attrs)){
             $this->OldApacheServerName        = "";
             $this->isNew              = true;

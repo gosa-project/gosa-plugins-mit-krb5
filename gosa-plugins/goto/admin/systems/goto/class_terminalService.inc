@@ -63,7 +63,7 @@ class termservice extends plugin
 
     function __construct(&$config, $dn= NULL, $parent= NULL)
     {
-        plugin::plugin ($config, $dn, $parent);
+        plugin::__construct ($config, $dn, $parent);
         $this->orig_dn= $this->dn;
 
         /* Check if we are a part of an ogroup.

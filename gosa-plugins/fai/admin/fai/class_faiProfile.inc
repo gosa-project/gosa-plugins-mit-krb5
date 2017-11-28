@@ -28,7 +28,7 @@ class faiProfile extends plugin
     function __construct(&$config, $dn= NULL)
     {
         /* Load Attributes */
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
         $ldap=$this->config->get_ldap_link();
 
         $this->ui = get_userinfo();

@@ -39,7 +39,7 @@ class gotoLpdEnable extends plugin
      */
     public function __construct($config,$data,&$parent)
     {
-        plugin::plugin($config,NULL);
+        plugin::__construct($config,NULL);
         $this->parent = $parent;
         $this->DevID = 0;
 

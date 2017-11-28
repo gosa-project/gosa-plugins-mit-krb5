@@ -37,7 +37,7 @@ class dhcpDnsZone extends dhcpPlugin
     function __construct($parent,$attrs,$host_exists_in_gosa = FALSE)
     {
         global $config;
-        dhcpPlugin::dhcpPlugin($parent,$attrs);
+        dhcpPlugin::__construct($parent,$attrs);
 
         /* Load attributes */
         if (!$this->new){

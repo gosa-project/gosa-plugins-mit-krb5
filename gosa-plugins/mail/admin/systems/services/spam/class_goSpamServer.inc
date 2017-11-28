@@ -38,7 +38,7 @@ class gospamserver extends goService{
     function __construct(&$config,$dn, $parent= NULL)
     {
         /* Init class */
-        goService::goService($config,$dn, $parent);
+        goService::__construct($config,$dn, $parent);
         $this->DisplayName = _("Spamassassin");
 
         /* Get userinfo & acls */

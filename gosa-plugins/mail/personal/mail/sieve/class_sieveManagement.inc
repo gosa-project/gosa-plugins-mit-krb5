@@ -69,7 +69,7 @@ class sieveManagement extends plugin
 
     $this->uattrib = $uattrib;
     $this->parent = &$parent;
-    plugin::plugin($config,$dn);
+    plugin::__construct($config,$dn);
 
     // Prepare lists
     $this->scriptList = new sortableListing();

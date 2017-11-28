@@ -22,7 +22,7 @@ class appgroup extends plugin
 
     public function __construct(&$config, $dn= NULL, $parent= NULL)
     {
-        plugin::plugin($config,$dn,$parent);
+        plugin::__construct($config,$dn,$parent);
         $this->dn = $dn; 
         $this->_load_menu_structure();
         $this->a_Structure_on_load = $this->a_Structure;

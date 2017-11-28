@@ -19,7 +19,7 @@ class servDNSeditZoneEntries extends plugin
 
     function __construct(&$config,$dn, &$zoneObject)
     {
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
 
         /* Initialise class
          */

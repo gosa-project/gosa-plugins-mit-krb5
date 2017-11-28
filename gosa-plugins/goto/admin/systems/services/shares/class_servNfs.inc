@@ -29,7 +29,7 @@ class servnfs extends plugin
     {
         $this->parent = $parent;
         $dn = $parent->dn;
-        plugin::plugin ($config, $dn);
+        plugin::__construct ($config, $dn);
 
         $this->types   = array("NBD" => "NBD", "CIFS" => "CIFS", "NFS"=>"NFS","samba"=>"samba","netatalk"=>"netatalk","NCP"=>"NCP");
         if($dn){

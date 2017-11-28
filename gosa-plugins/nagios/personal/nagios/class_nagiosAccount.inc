@@ -64,7 +64,7 @@ class nagiosAccount extends plugin
     /* Configuration is fine, allways */
     $this->config= $config;
 
-    plugin::plugin ($config, $dn);
+    plugin::__construct ($config, $dn);
 
     /* Setting uid to default */
     if(isset($this->attrs['uid'][0])){
